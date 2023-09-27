@@ -1,3 +1,4 @@
+import 'package:eval2_sis21a/models/crud.dart';
 import 'package:flutter/material.dart';
 
 class Registro extends StatefulWidget{
@@ -9,25 +10,12 @@ class Registro extends StatefulWidget{
 
 class _RegistroState extends State<Registro> {
 
-  TextEditingController _dato = TextEditingController();
-  //(°F − 32) × 5/9
-  double resultado=0.0;
+  final TextEditingController _nombreControllers = TextEditingController(text: "");
+   final TextEditingController _precioControllers = TextEditingController(text: "");
+   final TextEditingController _stockControllers = TextEditingController(text: "");
+  
   bool validacion=false;
   String mensaje = '';
-  double farenheit=0.0;
-
-  void _conver(){
-    setState(() {
-      if(_dato.text.toString()==''){
-        validacion=true;
-       mensaje='Campo Obligatorio';
-       resultado=0.0;
-       return;
-      }
-      farenheit= double.parse(_dato.text.toString());
-      resultado=(farenheit -32)* 5/9;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,39 +23,58 @@ class _RegistroState extends State<Registro> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.add_chart, size: 90,),
-          Text('Coversion F° a C°',
-            style: TextStyle(
-              fontSize: 35,
-              fontWeight: FontWeight.bold,
-              color: Colors.black,
-
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15, right: 15),
-            child: TextField(
-              controller: _dato,
-              textAlign: TextAlign.center,
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(
-                labelText: 'F°',
-                hintText: 'Dijite Temperatura F°',
-                errorText: _dato.text.toString() =='' ? mensaje : null
+          const Text('Datos del Producto',
+           style: TextStyle(
+             fontSize: 30, 
+             color: Colors.black,
+              fontWeight: FontWeight.bold 
+              ), 
               ),
-            ),
-          ),
-          ElevatedButton(onPressed: (){
-            _conver();
-          },
-              child: Text('Convertir')),
-          Text('${resultado.toStringAsFixed(2)}',
-          style: TextStyle(
-          fontSize: 40,
-          fontWeight: FontWeight.bold,
-          color: Colors.black54,
-          ),
-          ),
+           const SizedBox(height: 20,),
+          TextField( controller: _nombreControllers,
+           keyboardType: TextInputType.text,
+          decoration: const InputDecoration(
+          border: OutlineInputBorder(),
+          hintText: 'Digite nombre del producto',
+          prefixIcon: Icon(Icons.add_shopping_cart_sharp,
+          color: Colors.red,)
+                   ),
+                  ),
+          const SizedBox(height: 20,),
+          TextField( controller: _precioControllers,
+          keyboardType: TextInputType.text,
+          decoration: const InputDecoration(
+          border: OutlineInputBorder(),
+          hintText: 'Digite Precio',
+          prefixIcon: Icon(Icons.monetization_on_outlined,
+         color: Colors.red,)
+         ),
+         ),
+          const SizedBox(height: 20,),
+          TextField( controller: _stockControllers,
+          keyboardType: TextInputType.number,
+          decoration: const InputDecoration(
+          border: OutlineInputBorder(),
+          hintText: 'Digite el Stock',
+          prefixIcon: Icon(Icons.widgets_outlined,
+         color: Colors.red,)
+         ),
+         ),
+         const SizedBox(height: 20,),
+         ElevatedButton(
+        onPressed: () async{
+          print('Nombre Producto: ' + _nombreControllers.text);
+          print('Precio: ' + _precioControllers.text);
+          print('Stock: ' + _stockControllers.text);
+          //--------------------------------------------
+          //--------------------------------------------
+          await addProducto(_nombreControllers.text,
+          _precioControllers.text,
+          _stockControllers.text).then((_) {
+          Navigator.pop(context);
+          });
+          }, 
+          child: const Text('Guardar'))
         ],
       ),
     );
