@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:eval2_sis21a/views/pantalla.dart';
+import 'package:eval2_sis21a/views/registro.dart';
 import 'package:flutter/material.dart';
 
 
@@ -18,6 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
   getDrawerItemWidget(int pos){
     switch (pos){
       case 0: return Pantalla(title: "Lista de Productos",style: TextStyle(),);
+      case 1: return Registro();
       
      
     }
