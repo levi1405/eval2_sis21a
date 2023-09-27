@@ -16,4 +16,4 @@ import 'package:cloud_firestore/cloud_firestore.dart';
   return students; }
 
   Future<void> addProducto(String nombre, String precio, String stock) async {
-     await db.collection('tb_productos').add({"nombre" : nombre, "precio" : precio}); }
+     await db.collection('tb_productos').add({"nombre" : nombre, "precio" : precio, "stock": stock}); }

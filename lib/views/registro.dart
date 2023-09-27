@@ -14,8 +14,6 @@ class _RegistroState extends State<Registro> {
    final TextEditingController _precioControllers = TextEditingController(text: "");
    final TextEditingController _stockControllers = TextEditingController(text: "");
   
-  bool validacion=false;
-  String mensaje = '';
 
   @override
   Widget build(BuildContext context) {
