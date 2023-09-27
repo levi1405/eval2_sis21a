@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1008343184680",
+    "project_id": "eval2-sis21a-83a3e",
+    "storage_bucket": "eval2-sis21a-83a3e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1008343184680:android:dc7e1051bc7a4c2bbf4c1d",
+        "android_client_info": {
+          "package_name": "com.levidouglasitca.eval2_sis21a"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIH6PArEOFFB7wtpk6DnM1DAeUJ1CJbUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
