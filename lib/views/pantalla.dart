@@ -2,18 +2,21 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
+class Pantalla extends StatefulWidget {
+  const Pantalla({super.key, required this.title, required TextStyle style});
 
  
 
   final String title;
 
   @override
-  State<HomePage> createState() => HomePageState();
+  State<Pantalla> createState() => PantallaState();
+
+
+  
 }
 
-class HomePageState extends State<HomePage> {
+class PantallaState extends State<Pantalla> {
 
   void getEstudiantes() async{
     CollectionReference collectionReference =
@@ -44,15 +47,39 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-   
-    return Scaffold(
-      appBar: AppBar(
-       
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+
+
+   return Center(
+    child: Column(
+      children:<Widget>[
+
+
+       DataTable(
+                sortColumnIndex: 2,
+                sortAscending: false,
+                columns: [
+                  DataColumn(label: Text("Nombre")),
+                  DataColumn(label: Text("Apellido")),
+                  DataColumn(label: Text("Años"), numeric: true),
+                ],
+                rows: [
+                  DataRow(
+                    selected: true,
+                    cells: [
+                    DataCell(Text("Andres"), showEditIcon: true),
+                    DataCell(Text("Cruz")),
+                    DataCell(Text("28"))
+                  ]),
+                  DataRow(cells: [
+                    DataCell(Text("Ramos")),
+                    DataCell(Text("Ayu")),
+                    DataCell(Text("999"))
+                  ])
+                ],
+              ),
+
+              body: FutureBuilder(
         
-        title: Text(widget.title),
-      ),
-      body: FutureBuilder(
         future: getMensajes(),
         builder: ((context, snapshot){
           if(snapshot.hasData){
@@ -71,15 +98,13 @@ class HomePageState extends State<HomePage> {
             );
           }
         })
-      ),
+      ]
+    ),
 
+   );
+    
 
-      floatingActionButton: FloatingActionButton(
-        onPressed:getEstudiantes,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), 
-    );
+    
   }
 
 @override
