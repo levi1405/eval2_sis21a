@@ -52,7 +52,7 @@ class _RegistroState extends State<Registro> {
          ),
           const SizedBox(height: 20,),
           TextField( controller: _stockControllers,
-          keyboardType: TextInputType.number,
+          keyboardType: TextInputType.text,
           decoration: const InputDecoration(
           border: OutlineInputBorder(),
           hintText: 'Digite el Stock',
