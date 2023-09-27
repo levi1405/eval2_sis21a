@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               selected: (0==_item),
               leading: Icon(Icons.home),
-              title: Text('Home'),
+              title: Text('Productos'),
               onTap: (){
                 _setItemDrawer(0);
               },
@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               selected: (1==_item),
               leading: Icon(Icons.arrow_forward_ios),
-              title: Text('Pagina 1'),
+              title: Text('Registro Producto'),
               onTap: (){
                 _setItemDrawer(1);
               },
