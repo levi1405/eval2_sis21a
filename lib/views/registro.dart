@@ -1,4 +1,6 @@
 import 'package:eval2_sis21a/models/crud.dart';
+import 'package:eval2_sis21a/views/home.dart';
+import 'package:eval2_sis21a/views/pantalla.dart';
 import 'package:flutter/material.dart';
 
 class Registro extends StatefulWidget{
@@ -68,13 +70,22 @@ class _RegistroState extends State<Registro> {
           //--------------------------------------------
           await addProducto(_nombreControllers.text,
           _precioControllers.text,
-          _stockControllers.text).then((_) {
-          Navigator.pop(context);
+          _stockControllers.text).then((_){  
+            Navigator.pushReplacement(context,
+             MaterialPageRoute(builder:(context)=> MyHomePage()) );
+        //  Navigator.pushReplacement(context,
+        //   MaterialPageRoute(builder:(context)
+        //   =>Pantalla(title:"lista de productos ",
+        //    style: TextStyle())));
+
           });
+          
           }, 
           child: const Text('Guardar'))
         ],
       ),
     );
   }
+  
 }
+

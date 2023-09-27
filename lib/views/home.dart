@@ -25,7 +25,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-   void _setItemDrawer(int position){
+   void setItemDrawer(int position){
      Navigator.pop(context); // close the drawer
      setState(() {
       _item = position;
@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.home),
               title: Text('Productos'),
               onTap: (){
-                _setItemDrawer(0);
+                setItemDrawer(0);
               },
             ),
             ListTile(
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.arrow_forward_ios),
               title: Text('Registro Producto'),
               onTap: (){
-                _setItemDrawer(1);
+                setItemDrawer(1);
               },
             ),
             ListTile(
@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.arrow_forward_ios),
               title: Text('Pagina 2'),
               onTap: (){
-                _setItemDrawer(2);
+                setItemDrawer(2);
               },
             ),
             ListTile(
@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
            leading: Icon(Icons.arrow_forward_ios),
                 title: Text('Pagina 3'),
               onTap: (){
-                _setItemDrawer(3);
+                setItemDrawer(3);
               },
             ),
 
