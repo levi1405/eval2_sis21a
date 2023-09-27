@@ -18,6 +18,8 @@ class Pantalla extends StatefulWidget {
 
 class PantallaState extends State<Pantalla> {
 
+
+
   void getEstudiantes() async{
     CollectionReference collectionReference =
     FirebaseFirestore.instance.collection("tb_productos");
@@ -47,38 +49,19 @@ class PantallaState extends State<Pantalla> {
 
   @override
   Widget build(BuildContext context) {
+ return Scaffold(
+      appBar: AppBar(
+       
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        
+        title: Text(widget.title),
+      ),
 
+      
 
-   return Center(
-    child: Column(
-      children:<Widget>[
+      body: FutureBuilder(
 
-
-       DataTable(
-                sortColumnIndex: 2,
-                sortAscending: false,
-                columns: [
-                  DataColumn(label: Text("Nombre")),
-                  DataColumn(label: Text("Apellido")),
-                  DataColumn(label: Text("Años"), numeric: true),
-                ],
-                rows: [
-                  DataRow(
-                    selected: true,
-                    cells: [
-                    DataCell(Text("Andres"), showEditIcon: true),
-                    DataCell(Text("Cruz")),
-                    DataCell(Text("28"))
-                  ]),
-                  DataRow(cells: [
-                    DataCell(Text("Ramos")),
-                    DataCell(Text("Ayu")),
-                    DataCell(Text("999"))
-                  ])
-                ],
-              ),
-
-              body: FutureBuilder(
+        
         
         future: getMensajes(),
         builder: ((context, snapshot){
@@ -86,20 +69,63 @@ class PantallaState extends State<Pantalla> {
             return ListView.builder(
               itemCount: snapshot.data?.length,
               itemBuilder: ((context, index) {
-                return Text(snapshot.data?[index]["nombre"]+" - "+
-                snapshot.data?[index]["precio"]+" - "+
-                snapshot.data?[index]["stock"]
+
+                return Card(
+                 elevation: 10,
+                 clipBehavior: Clip.hardEdge,
+                 shape: const RoundedRectangleBorder(
+                  side: BorderSide(
+                    color: Colors.black26,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(12)),
+                 ),
+                 child: InkWell(
+                  splashColor: Colors.grey,
+                  onTap: (){
+                    debugPrint(snapshot.data?[index]["nombre"]+" "+
+                    snapshot.data?[index]["nombre"]+" "+
+                    snapshot.data?[index]["stock"]
+                    );
+                  },
+                  child: SizedBox(
+                    width: 300,
+                    height:100,
+                    child: Center(
+                      child: Text(
+                        snapshot.data?[index]["nombre"]+" "+
+                        snapshot.data?[index]["precio"]+" "+
+                        snapshot.data?[index]["stock"],
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue
+                  ),
+                 ),
+              ),
+                  ),
+                 ),
                 );
-              })
-            ); 
+
+              }),
+            );
+
+
+
+
+               // return Text(snapshot.data?[index]["nombre"]+" - "+
+               // snapshot.data?[index]["precio"]+" - "+
+               // snapshot.data?[index]["stock"]
+               // );
+
+        
+             
           }else{
             return const Center(
               child: CircularProgressIndicator(),
             );
           }
         })
-      ]
-    ),
+      ),
 
    );
     
