@@ -1,4 +1,4 @@
-import 'package:eval2_sis21a/pantalla.dart';
+import 'package:eval2_sis21a/views/pantalla.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 

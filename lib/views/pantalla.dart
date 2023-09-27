@@ -17,7 +17,7 @@ class HomePageState extends State<HomePage> {
 
   void getEstudiantes() async{
     CollectionReference collectionReference =
-    FirebaseFirestore.instance.collection("tbestudiantes");
+    FirebaseFirestore.instance.collection("tb_productos");
     QuerySnapshot mensaje = await collectionReference.get();
     if (mensaje.docs.length !=0) {
       for (var doc in mensaje.docs) {
@@ -31,7 +31,7 @@ class HomePageState extends State<HomePage> {
   Future<List> getMensajes() async{
     List chats = [];
     CollectionReference collectionReference=
-    FirebaseFirestore.instance.collection("tbestudiantes");
+    FirebaseFirestore.instance.collection("tb_productos");
     QuerySnapshot mensajes = await collectionReference.get();
     if(mensajes.docs.length !=0){
       for(var doc in mensajes.docs){
@@ -59,8 +59,9 @@ class HomePageState extends State<HomePage> {
             return ListView.builder(
               itemCount: snapshot.data?.length,
               itemBuilder: ((context, index) {
-                return Text(snapshot.data?[index]["apellido"]+
-                snapshot.data?[index]["carnet"]
+                return Text(snapshot.data?[index]["nombre"]+" - "+
+                snapshot.data?[index]["precio"]+" - "+
+                snapshot.data?[index]["stock"]
                 );
               })
             ); 
