@@ -1,7 +1,8 @@
-import 'dart:ffi';
 
+import 'package:eval2_sis21a/views/login_page.dart';
 import 'package:eval2_sis21a/views/pantalla.dart';
 import 'package:eval2_sis21a/views/registro.dart';
+import 'package:eval2_sis21a/views/sign_up_auth.dart';
 import 'package:flutter/material.dart';
 
 
@@ -20,6 +21,8 @@ class _MyHomePageState extends State<MyHomePage> {
     switch (pos){
       case 0: return Pantalla(title: "Lista de Productos",style: TextStyle(),);
       case 1: return Registro();
+      case 2: return LoginPage();
+      case 3: return SignUpPage();
       
      
     }
@@ -73,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               selected: (2==_item),
               leading: Icon(Icons.arrow_forward_ios),
-              title: Text('Pagina 2'),
+              title: Text('LoginPage'),
               onTap: (){
                 setItemDrawer(2);
               },
@@ -81,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               selected: (3==_item),
            leading: Icon(Icons.arrow_forward_ios),
-                title: Text('Pagina 3'),
+                title: Text('SignUpPage'),
               onTap: (){
                 setItemDrawer(3);
               },
