@@ -3,8 +3,6 @@ import 'package:eval2_sis21a/widget/input_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import'package:eval2_sis21a/user_auth/firebase_auth_services.dart';
-import 'package:eval2_sis21a/views/login_page.dart';
-import 'package:eval2_sis21a/widget/input_widget.dart';
 
 
 class SignUpPage extends StatefulWidget {
