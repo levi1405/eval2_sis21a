@@ -5,13 +5,15 @@ import 'package:flutter/material.dart';
 import'package:eval2_sis21a/user_auth/firebase_auth_services.dart';
 import 'package:eval2_sis21a/views/login_page.dart';
 import 'package:eval2_sis21a/widget/input_widget.dart';
+
+
 class SignUpPage extends StatefulWidget {
  const SignUpPage({super.key});
  @override
  State<SignUpPage> createState() => _SignUpPageState();
 }
 class _SignUpPageState extends State<SignUpPage> {
- final FirebaseAuthService_auth = FirebaseAuthService();
+ final FirebaseAuthService _auth = FirebaseAuthService();
  final TextEditingController _usernameController =
 TextEditingController();
  final TextEditingController _emailController =
@@ -19,7 +21,7 @@ TextEditingController();
  final TextEditingController _passwordController =
 TextEditingController();
 
-  get await_auth => null;
+ 
  @override
  void dispose() {
  _usernameController.dispose();
@@ -118,14 +120,15 @@ TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),))
  ),
  );
  }
- void _signUp() async {
+ void _signUp() async { print("hola");
    String username = _usernameController.text;
  String email = _emailController.text;
  String password = _passwordController.text;
- User? user = await_auth.signUpWithEmailAndPassword(email, password);
+ User? user = await _auth.signUpWithEmailAndPassword(email, password);
  if (user != null){
  print("Usuario agregado satisfactoriamente.");
- Navigator.pushNamed(context, "/login");
+ Navigator.pushReplacement(context,
+             MaterialPageRoute(builder:(context)=> LoginPage()) );
  } else{
  print("Some error happend");
  }

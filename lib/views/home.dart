@@ -21,8 +21,8 @@ class _MyHomePageState extends State<MyHomePage> {
     switch (pos){
       case 0: return Pantalla(title: "Lista de Productos",style: TextStyle(),);
       case 1: return Registro();
-      case 2: return LoginPage();
-      case 3: return SignUpPage();
+      case 2: return ();
+      // case 3: return SignUpPage();
       
      
     }
@@ -76,19 +76,19 @@ class _MyHomePageState extends State<MyHomePage> {
             ListTile(
               selected: (2==_item),
               leading: Icon(Icons.arrow_forward_ios),
-              title: Text('LoginPage'),
+              title: Text('Cerrrar Sesión'),
               onTap: (){
                 setItemDrawer(2);
               },
             ),
-            ListTile(
-              selected: (3==_item),
-           leading: Icon(Icons.arrow_forward_ios),
-                title: Text('SignUpPage'),
-              onTap: (){
-                setItemDrawer(3);
-              },
-            ),
+          //   ListTile(
+          //     selected: (3==_item),
+          //  leading: Icon(Icons.arrow_forward_ios),
+          //       title: Text('SignUpPage'),
+          //     onTap: (){
+          //       setItemDrawer(3);
+          //     },
+          //   ),
 
           ],
         ),

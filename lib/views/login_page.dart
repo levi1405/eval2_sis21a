@@ -1,3 +1,4 @@
+import 'package:eval2_sis21a/views/home.dart';
 import 'package:eval2_sis21a/widget/input_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
 TextEditingController();
  final TextEditingController _passwordController =
 TextEditingController();
- String? mensaje;
+ String mensaje="";
  void notificacion(){
  setState(() {
  });
@@ -37,14 +38,14 @@ TextEditingController();
  return Scaffold(
  appBar: AppBar(
  //leading: const Icon(Icons.close),
- leading: Builder(
- builder: (BuildContext context) {
- return IconButton(
- icon: const Icon(Icons.menu),
- onPressed: () => print('Has presionado el icono menu')
- );
- },
- ),
+//  leading: Builder(
+//  builder: (BuildContext context) {
+//  return IconButton(
+//  icon: const Icon(Icons.menu),
+//  onPressed: () => print('Has presionado el icono menu')
+//  );
+//  },
+//  ),
  
  ),
  body: Center(
@@ -111,7 +112,7 @@ Colors.blue,fontWeight: FontWeight.bold),)),
  ),
  const SizedBox(height: 25,),
  Text('$mensaje',
- style: const TextStyle(color: Colors.blue,
+ style: const TextStyle(color: Color.fromARGB(255, 224, 52, 0),fontSize: 20,
  fontWeight: FontWeight.bold),)
  ],
  ),
@@ -128,7 +129,8 @@ _auth.signInWithEmailAndPassword(email, password);
  if (user != null){
  print("LognIn Satisfactorio!!!");
  //Navigator.pushNamed(context, "/");
- Navigator.pushReplacementNamed(context, "/");
+  Navigator.pushReplacement(context,
+             MaterialPageRoute(builder:(context)=> MyHomePage()) );
  setState(() {
  mensaje = "";
  });
