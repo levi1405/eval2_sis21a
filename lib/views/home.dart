@@ -3,6 +3,7 @@ import 'package:eval2_sis21a/views/login_page.dart';
 import 'package:eval2_sis21a/views/pantalla.dart';
 import 'package:eval2_sis21a/views/registro.dart';
 import 'package:eval2_sis21a/views/sign_up_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 
@@ -40,6 +41,15 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
      appBar: AppBar(
        title: Text('Menu Drawer'),
+       
+       actions: [
+        IconButton(onPressed: (){
+          
+          // FirebaseAuth.instance.signOut();
+          // Navigator.pushReplacement(context,
+          //    MaterialPageRoute(builder:(context)=> LoginPage()) );
+        }, icon: const Icon(Icons.close))
+       ],
      ),
       drawer: Drawer(
         child: ListView(
