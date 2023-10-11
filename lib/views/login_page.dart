@@ -1,9 +1,10 @@
+import 'package:eval2_sis21a/widget/input_widget.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import'package:one_flutter/user_auth/firebase_auth_services.dart';
-import 'package:one_flutter/views/sign_up_auth.dart';
+import'package:eval2_sis21a/user_auth/firebase_auth_services.dart';
+import 'package:eval2_sis21a/views/sign_up_auth.dart';
 //import 'package:one_flutter/widget/form_container_widget.dart';
-import 'package:one_flutter/widget/input_password.dart';
+//import 'package:eval2_sis21a/widget/input_password.dart';
 
 
 
@@ -40,8 +41,7 @@ TextEditingController();
  builder: (BuildContext context) {
  return IconButton(
  icon: const Icon(Icons.menu),
- onPressed: () => print('Has presionado el 
-icono menu')
+ onPressed: () => print('Has presionado el icono menu')
  );
  },
  ),
@@ -63,8 +63,7 @@ FontWeight.bold),
  const SizedBox(
  height: 30,
   ),
- _InputCustomized(_emailController,false,'Correo 
-electronico', 'E-mail',
+ _InputCustomized(_emailController,false,'Correo electronico', 'E-mail',
  TextInputType.emailAddress, Icons.email),
  const SizedBox(
  height: 30,
