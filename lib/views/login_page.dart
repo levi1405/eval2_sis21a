@@ -36,18 +36,18 @@ TextEditingController();
  @override
  Widget build(BuildContext context) {
  return Scaffold(
- appBar: AppBar(
- //leading: const Icon(Icons.close),
-//  leading: Builder(
-//  builder: (BuildContext context) {
-//  return IconButton(
-//  icon: const Icon(Icons.menu),
-//  onPressed: () => print('Has presionado el icono menu')
-//  );
-//  },
-//  ),
+ // appBar: AppBar(
+//  //leading: const Icon(Icons.close),
+// //  leading: Builder(
+// //  builder: (BuildContext context) {
+// //  return IconButton(
+// //  icon: const Icon(Icons.menu),
+// //  onPressed: () => print('Has presionado el icono menu')
+// //  );
+// //  },
+ // ),
  
- ),
+//  ),
  body: Center(
  child: Padding(
  padding: const EdgeInsets.symmetric(horizontal:

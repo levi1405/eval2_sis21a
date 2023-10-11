@@ -13,7 +13,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _item = 0;
 
-  void showAlertDialog() {
+  showAlertDialog() {
     showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -73,6 +73,9 @@ class _MyHomePageState extends State<MyHomePage> {
           IconButton(
               onPressed: () {
                 showAlertDialog();
+                // FirebaseAuth.instance.signOut();
+                //     Navigator.pushReplacement(context,
+                //         MaterialPageRoute(builder: (context) => LoginPage()));
               },
               icon: const Icon(Icons.close))
         ],
