@@ -1,3 +1,5 @@
+
+import 'package:eval2_sis21a/views/Pantalla2.dart';
 import 'package:eval2_sis21a/views/login_page.dart';
 import 'package:eval2_sis21a/views/pantalla.dart';
 import 'package:eval2_sis21a/views/registro.dart';
@@ -45,14 +47,11 @@ class _MyHomePageState extends State<MyHomePage> {
   getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
-        return Pantalla(
-          title: "Lista de Productos",
-          style: TextStyle(),
-        );
+        return ProductListScreen();
       case 1:
         return Registro();
       case 2:
-        return ();
+        return  ();
       // case 3: return SignUpPage();
     }
   }

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -67,47 +69,61 @@ class PantallaState extends State<Pantalla> {
         builder: ((context, snapshot){
           if(snapshot.hasData){
             return ListView.builder(
+              
               itemCount: snapshot.data?.length,
               itemBuilder: ((context, index) {
 
-                return Card(
-                 elevation: 10,
-                 clipBehavior: Clip.hardEdge,
-                 shape: const RoundedRectangleBorder(
-                  side: BorderSide(
-                    color: Colors.black26,
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(12)),
-                 ),
-                 child: InkWell(
-                  splashColor: Colors.grey,
-                  onTap: (){
-                    debugPrint(snapshot.data?[index]["nombre"]+" "+
-                    snapshot.data?[index]["nombre"]+" "+
-                    snapshot.data?[index]["stock"]
-                    );
-                  },
-                  child: SizedBox(
-                    width: 300,
-                    height:100,
-                    child: Center(
-                      child: Text(
-                        snapshot.data?[index]["nombre"]+" "+
-                        snapshot.data?[index]["precio"]+" "+
-                        snapshot.data?[index]["stock"],
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue
-                  ),
-                 ),
+                return Container(
+                  
+                  decoration: BoxDecoration(
+                border: Border.all(color: Colors.green), // Borde verde
+                borderRadius: BorderRadius.circular(10.0), // Bordes redondeados
               ),
-                  ),
-                 ),
+              margin: EdgeInsets.all(10),
+                  child: 
+                      Card(
+                   elevation: 0,
+                  child: InkWell(
+                  
+                      child: SizedBox(
+                        width: 300,
+                        height:100,
+                        
+                          child: Text(
+                            "Nombre: ${snapshot.data?[index]['nombre']}\n"+
+                            "Precio: ${snapshot.data?[index]['precio']}\n"+
+                            "Stock: ${snapshot.data?[index]['stock']}",
+                            
+                            
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue,
+
+                              
+                              
+                      ),
+                      
+                      
+                       ),
+                        
+                   ),
+                
+                       ),
+                      ),
+                  
+                   
+                
+                  
                 );
+                
 
               }),
+
+        
             );
+
+            
 
 
 
@@ -144,6 +160,9 @@ class PantallaState extends State<Pantalla> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
+  }
+  
+  void eliminarProducto(data) {
   }
 
   
