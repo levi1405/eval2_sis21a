@@ -1,4 +1,3 @@
-
 import 'package:eval2_sis21a/views/Pantalla2.dart';
 import 'package:eval2_sis21a/views/login_page.dart';
 import 'package:eval2_sis21a/views/pantalla.dart';
@@ -51,8 +50,6 @@ class _MyHomePageState extends State<MyHomePage> {
       case 1:
         return Registro();
       case 2:
-        return  ();
-      // case 3: return SignUpPage();
     }
   }
 
@@ -111,14 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 setItemDrawer(1);
               },
             ),
-            ListTile(
-              selected: (2 == _item),
-              leading: Icon(Icons.arrow_forward_ios),
-              title: Text('Cerrrar Sesión'),
-              onTap: () {
-                setItemDrawer(2);
-              },
-            ),
+
             //   ListTile(
             //     selected: (3==_item),
             //  leading: Icon(Icons.arrow_forward_ios),
